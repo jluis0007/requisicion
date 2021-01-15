@@ -3,9 +3,9 @@ const { promisify }= require('util');
 
 const { database } = require('./keys');
 
-const pool = mysql.createPool(database);
+const pool = mysql.createPool(database);// hilos que se ejecutan a la vez
 
-pool.getConnection((err, connection) => {
+pool.getConnection((err, connection) => {// este código no soporta el async await por eso promisify que esta antes
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       console.error('Database connection was closed.');
@@ -24,7 +24,7 @@ pool.getConnection((err, connection) => {
   return;
 });
 
-// Promisify Pool Querys
+// Promisify Pool Querys CONVERTIENDO PROMESAS LO QUE ANTES ERAN CALL BACKS
 pool.query = promisify(pool.query);
 
 module.exports = pool;
