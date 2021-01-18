@@ -1,102 +1,102 @@
 <div class="container p-4">
     <div class="row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-10 mx-auto">
 
             <div class="card">
                 <div class="card-body">
                     <form action="/links/pedidos" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Año</label>
+                        <div class="form-row">
+                            <div class="form-col-mb-8">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Año</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" autofocus>
+                                                <option selected>Elige...</option>
+                                                <option value="1">2021</option>
+                                                <option value="2">2022</option>
+                                                <option value="3">2023</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Mes</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01">
+                                                <option selected>Elige...</option>
+                                                <option value="1">Enero</option>
+                                                <option value="2">Febrero</option>
+                                                <option value="3">Marzo</option>
+                                                <option value="1">Abril</option>
+                                                <option value="2">Mayo</option>
+                                                <option value="3">Junio</option>
+                                                <option value="1">Julio</option>
+                                                <option value="2">Agosto</option>
+                                                <option value="3">Septiembre</option>
+                                                <option value="1">Octubre</option>
+                                                <option value="2">Noviembre</option>
+                                                <option value="3">Diciembre</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Elige...</option>
-                                    <option value="1">2021</option>
-                                    <option value="2">2022</option>
-                                    <option value="3">2023</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Mes</label>
-                                </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Elige...</option>
-                                    <option value="1">Enero</option>
-                                    <option value="2">Febrero</option>
-                                    <option value="3">Marzo</option>
-                                    <option value="1">Abril</option>
-                                    <option value="2">Mayo</option>
-                                    <option value="3">Junio</option>
-                                    <option value="1">Julio</option>
-                                    <option value="2">Agosto</option>
-                                    <option value="3">Septiembre</option>
-                                    <option value="1">Octubre</option>
-                                    <option value="2">Noviembre</option>
-                                    <option value="3">Diciembre</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <!--AQUI PONEMOS LOS TIPOS DE ARTICULOS EXTRAIDOS DE BD CATALOGO-->
-                            <select name="pedidos_tipo_id" class="form-select form-control" aria-label="Default select example"
-                                pal required autofocus>
-                                <option value="" disabled selected hidden>Todos los tipos</option>
-                                {{#each tipos}}
-                                <option value="{{id}}">{{tipo}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <!--AQUI PONEMOS LOS ARTICULOS EXTRAIDOS DE BD-->
-                            <select name="pedidos_articulo_id" class="form-select form-control" aria-label="Default select example"
-                                pal required autofocus>
-                                <option value="" disabled selected hidden>Elige el artículo</option>
-                                {{#each articulos}}
-                                <option value="{{id}}">{{articulo}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                        <div class="image-preview center-block mx-auto" id="imagePreview">
-                            <img src="" alt="Image Preview" class="image-preview__image center-block mx-auto">
-                            <span class="image-preview__default-text center-block mx-auto">Image Prewiew</span>
-                        </div>
-                        {{!-- <div class="form-group">
-                            <!--AQUI PONEMOS LOS ARTICULOS EXISTENTES-->
-                            <select multiple name="articulo_id" class="form-select form-control"
-                                aria-label="Default select example" pal required autofocus>
-                                <option value="" disabled selected hidden>Tipo de artículo</option>
-                                {{#each articulos}}
-                                <option value="{{id}}">{{articulo}}</option>
-                                {{/each}}
-                            </select> --}}
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <!--AQUI PONEMOS LOS TIPOS DE ARTICULOS EXTRAIDOS DE BD CATALOGO-->
+                                        <select name="pedidos_tipo_id" class="form-select form-control"
+                                            aria-label="Default select example" pal required autofocus>
+                                            <option value="" disabled selected hidden>Todos los tipos</option>
+                                            {{#each tipos}}
+                                            <option value="{{id}}">{{tipo}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    <div class="form-col">
+                                        {{!-- <div class="form-group col-md-2"> --}}
+                                            <div class="input-group input-group mb-3 ">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Cant.</span>
+                                                </div>
+                                                <input type="number" class="form-control" aria-label="Small"
+                                                    aria-describedby="inputGroup-sizing-sm" value="0" default="1"
+                                                    placeholder="Cantidad" id="example-number-input">
+                                            </div>
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <!--AQUI PONEMOS LOS ARTICULOS EXTRAIDOS DE BD-->
+                                        <select name="uploaded_file" class="form-select form-control" aria-label="Default select example" id="uploaded_file" required>
+                                            <option value="" disabled selected hidden>Elige el artículo que necesitas</option>
+                                            {{#each articulos}}
+                                            <option value="{{id}}">{{articulo}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
 
-                            {{!-- <label for="exampleFormControlSelect2">Example multiple select</label>
-                            <select multiple class="form-control" name="articulo_id" id="exampleFormControlSelect2">
-                                 {{#each articulos}}
-                                <option>{{articulo}}</option>
-                                {{/each}}
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select> --}}
-                        {{!-- </div> --}}
+                                </div>
+                            </div>
+
+
+                            <div class="form-col">    
+                                <div class="form-group">
+                                    <div class="image-preview center-block mx-auto" id="imagePreview">
+                                        <img src="../../img/fotos/1.jpg" alt="Image Preview" class="image-preview__image center-block mx-auto" >
+                                        <span class="image-preview__default-text center-block mx-auto">Image Prewiew</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
                         <div class="form-group">
                             <textarea class="form-control" name="descripcion" aria-label="With textarea"
                                 placeholder="Descripción" required disabled></textarea>
                         </div>
-                        <div class="form-group">
-                            <div class="input-group input-group-sm mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
-                                </div>
-                                <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" value="0" default="1" placeholder="Cantidad" id="example-number-input">
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-success btn-block" name="button1">
                                 Agregar artículo al carrito
@@ -105,6 +105,37 @@
                     </form>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+<script>
+    const uploaded_file = document.getElementById("uploaded_file");
+    const previewContainer = document.getElementById("imagePreview");
+    const previewImage = previewContainer.querySelector(".image-preview__image");
+    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+    uploaded_file.addEventListener("change", function() {
+        const valorCombo = uploaded_file.value;
+        const dirImage = `../../img/fotos/${valorCombo}`;
+        previewDefaultText.style.display ="none";
+        previewImage.style.display= "block";
+        previewImage.setAttribute("src", dirImage);
+        /*const file =this.files[0];
+        if(file){
+            const reader = new FileReader();
+
+            previewDefaultText.style.display ="none";
+            previewImage.style.display= "block";
+
+            reader.addEventListener("load", function(){
+                console.log(this);
+                previewImage.setAttribute("src", this.result);
+            });
+            reader.readAsDataURL(file);
+        }else{
+            previewDefaultText.style.display =null;
+            previewImage.style.display= null;
+            previewImage.setAttribute("src", "");
+        }*/
+    });
+</script>

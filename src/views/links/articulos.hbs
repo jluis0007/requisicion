@@ -14,17 +14,11 @@
                                 {{/each}}
                             </select>
                         </div>
-                        
-                        <div class="form-group d-flex ">
-                            <button type="button" class="btn btn-dark btn-sm ml-auto">
-                                +
-                            </button>
-                        </div>
                         {{!-- <div class="form-group">
                             <input type="text" name="tipo" class="form-control" placeholder="Tipo">
                         </div> --}}
                         <div class="form-group">
-                            <input type="text" name="articulo" class="form-control" placeholder="Artículo" required>
+                            <input type="text" name="articulo" class="form-control" placeholder="Nuevo artículo" required>
                         </div>
                         {{!-- <div class="form-group">
                             <input type="file" name="">
@@ -33,7 +27,7 @@
                             <div class="custom-file" >
                                 <input name="uploaded_file"type="file" class="custom-file-input form-control text-light bg-dark" id="uploaded_file" required>
                                 {{!-- customFile  --}}
-                                <label class="custom-file-label form-control center-block mx-auto" for="customFile">Elige la fotografía</label>
+                                <label class="custom-file-label form-control center-block mx-auto" for="customFile">Elige la fotografía para ese artículo</label>
                             </div>
                         </div>
                         <div class="image-preview center-block mx-auto" id="imagePreview">
@@ -44,7 +38,7 @@
                             <input type="url" name="foto" class="form-control" placeholder="URL de la fotográfia">
                         </div> --}}
                         <div class="form-group">
-                            <textarea class="form-control" name="descripcion" aria-label="With textarea" placeholder="Descripción" required></textarea>
+                            <textarea class="form-control" name="descripcion" aria-label="With textarea" placeholder="Descripción del artículo" required></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success btn-block" name="button1">

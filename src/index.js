@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 
 /****************************************** * ROUTES****************/
 app.use(require('./routes'));
-app.use(require('./routes/authentication'));
+app.use(require('./routes/autenticacion'));
 app.use('/links', require('./routes/links')); //es para después de links poner ID ej: liks/UVIUHUI  (después de eso es ID)
 
 // Public
