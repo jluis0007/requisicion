@@ -2,10 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path'); //utilizarlo en settings para layouts
 const exphbs = require('express-handlebars');
+const fileUpload = require('express-fileupload');
 //const session = require('express-session');
 //const validator = require('express-validator');
 // const passport = require('passport');
-// const flash = require('connect-flash');
+const flash = require('connect-flash');
 // const MySQLStore = require('express-mysql-session')(session);
 //const bodyParser = require('body-parser');
 
@@ -31,6 +32,7 @@ app.set('view engine', '.hbs'); //PARA VER LO ANTERIOR
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false })); //solo para  aceptar peticiones de datos sencillos, imagenes y otros no
 app.use(express.json()); //para que las peticiones puedan mandarse jsons
+//app.use(fileUpload());
 
 // app.use(session({
 //   secret: 'faztmysqlnodemysql',

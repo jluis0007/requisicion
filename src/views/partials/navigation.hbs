@@ -11,14 +11,38 @@
       <ul class="navbar-nav ml-auto">
         {{!-- {{#if user}} --}}
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_catalogo" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+          Catalogos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links/articulos">Artículos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/tipos">Tipos de Artículos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/departamentos">Departamentos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_usuarios" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+          Usuarios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links/add_user">Agregar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/mod_user">Modificar</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
           Mi Pedido
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/links">Mi pedido</a>
+            <a class="dropdown-item" href="/links/pedidos">Agregar</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/links/add">Add A Link</a>
+            <a class="dropdown-item" href="/links/add">Pendientes</a>
           </div>
         </li>
         <li class="nav-item">

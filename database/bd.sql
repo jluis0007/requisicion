@@ -2,21 +2,16 @@ CREATE DATABASE requisiciones;
 
 USE requisiciones;
 
--- TABLE CATALOGOS ********************
+-- -- TABLE CATALOGOS ********************
 CREATE TABLE catalogos (
-  id INT(11) NOT NULL,
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   tipo VARCHAR(100) NOT NULL
 );
-ALTER TABLE catalogos
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE catalogos
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
 
   INSERT INTO catalogos (id, tipo)
   VALUES (1, 'lápiz');
   INSERT INTO catalogos (id, tipo) 
-  VALUES (2, 'pluma');
+  VALUES (2, 'bolígrafo');
   INSERT INTO catalogos (id, tipo) 
   VALUES (3, 'Marca textos');
   INSERT INTO catalogos (id, tipo) 
@@ -24,28 +19,21 @@ ALTER TABLE catalogos
 
 -- ARTICULOS TABLE **********************************
 CREATE TABLE articulos (
-  id INT(11) NOT NULL,
-  nombre VARCHAR(100) NOT NULL,
-  tipo VARCHAR(100) NOT NULL,
-  foto VARCHAR(200) NOT NULL
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  articulo VARCHAR(100) NOT NULL,
+  tipo_id INT(11) NOT NULL,
+  descripcion VARCHAR(200) NOT NULL,
+  foto VARCHAR(50) NOT NULL,
+  CONSTRAINT fk_tipo FOREIGN KEY(tipo_id) REFERENCES catalogos(id)
 );
-
-ALTER TABLE articulos
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE articulos
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
+  INSERT INTO articulos (id, articulo, tipo_id, foto, descripcion)
+  VALUES (1, 'Lápiz De Grafito Maped con Goma Flowpack Hb',1,'1.jpg','Ejemplo');
 
 -- TABLE DEPARTAMENTOS *****************
 CREATE TABLE departamentos (
-  id INT(11) NOT NULL,
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   depto VARCHAR(100) NOT NULL
 );
-ALTER TABLE departamentos
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE departamentos
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
 
 INSERT INTO departamentos (id, depto) 
   VALUES (1, 'sistemas');
@@ -78,15 +66,9 @@ INSERT INTO departamentos (id, depto)
 
 -- TABLE CARGOS *****************************
 CREATE TABLE cargos (
-  id INT(11) NOT NULL,
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cargo VARCHAR(100) NOT NULL
 );
-ALTER TABLE cargos
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE cargos
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
-
 
 INSERT INTO cargos (id, cargo)
   VALUES (1, 'director');
@@ -98,7 +80,7 @@ INSERT INTO cargos (id, cargo)
 -- TABLE USER**********************************
 -- all pasword wil be encrypted using SHA1
 CREATE TABLE users (
-  id INT(11) NOT NULL,
+  id INT(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(16) NOT NULL,
   password VARCHAR(60) NOT NULL,
   fullname VARCHAR(100) NOT NULL,
@@ -107,12 +89,6 @@ CREATE TABLE users (
   rol VARCHAR(20) NOT NULL,
   id_sup INT(11)
 );
-
-ALTER TABLE users
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE users
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT;
 
 INSERT INTO users (id, username, password, fullname, depto, cargo, rol, id_sup) 
   VALUES (1, 'magdacasas', '123', 'magda casas','administración y finanzas','operativo','admin',null);
@@ -132,13 +108,10 @@ INSERT INTO users (id, username, password, fullname, depto, cargo, rol, id_sup)
   INSERT INTO users (id, username, password, fullname, depto, cargo, rol, id_sup) 
   VALUES (8, 'dianaguzman', '123', 'diana guzmán najera','fiscalización a municipios','operativo','user',7);
 
-SELECT * FROM users;
-
-
 
 -- PEDIDO TABLE **********************************
 CREATE TABLE pedidos (
-  id INT(11) NOT NULL,
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   articulo_id INT(11) NOT NULL,
   user_id INT(11) NOT NULL,
   mes smallint NOT NULL,
@@ -149,9 +122,3 @@ CREATE TABLE pedidos (
   CONSTRAINT fk_art FOREIGN KEY(articulo_id) REFERENCES articulos(id),
   CONSTRAINT fk_ped FOREIGN KEY(user_id) REFERENCES users(id)
 );
-
-ALTER TABLE pedidos
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE pedidos
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT;

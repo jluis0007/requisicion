@@ -1,14 +1,12 @@
 body {
     background: #f5f6fa;
-font-family: 'Oswald', sans-serif;
-
+    font-family: 'Oswald', sans-serif;
     overflow: hidden;
 }
 
 .index {
     width: 100vw;
     height: 100vh;
-    
 }
 
 .navbar {
@@ -36,13 +34,61 @@ font-family: 'Oswald', sans-serif;
     font-size: 4rem;
     margin: 0;
     padding: 0;
-  }
-  
-  @media (min-width: 992px) {
+}
+
+#ul_tipos {
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 300px;
+}
+
+#departamentos_input {
+    margin-top: 30px;
+}
+
+#ul_departamentos {
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 300px;
+}
+
+#tipos_input {
+    margin-top: 30px;
+}
+
+li {
+    font-size: 0.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.image-preview {
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 60px;
+    width: 100%;
+    /*Default text*/
+    display: flex;
+    align-items: center;
+    /* font-weight:; */
+    color: #cccccc;
+}
+
+.image-preview__image {
+    display: none;
+    width: 60%;
+}
+
+@media (min-width: 992px) {
     .masthead {
-      height: 100vh;
+        height: 100vh;
     }
     .masthead h1 {
-      font-size: 5.5rem;
+        font-size: 5.5rem;
     }
-  }
+}

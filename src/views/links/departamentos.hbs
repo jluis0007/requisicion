@@ -1,0 +1,27 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+
+            <div class="card">
+                <div class="card-body">
+                    <!--AQUI PONEMOS EL TIPO DE ARTICULO EXTRAIDO DE BD CATALOGO-->
+                    <ul class="list-group list-group " id="ul_departamentos">
+                        {{#each departamentos}}
+                        <li class="list-group-item text-sm-left text-secondary">{{depto}}</li>
+                        {{/each}}
+                    </ul>
+                    <form action="/links/departamentos" method="POST">
+                        <div class="form-group" id="departamentos_input">
+                            <input type="text" name="tipo" class="form-control" placeholder="Departamento nuevo" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block" name="button3">
+                                Agregar departamento al catálogo
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
