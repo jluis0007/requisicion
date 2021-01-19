@@ -66,15 +66,17 @@
                                                     placeholder="Cantidad" id="example-number-input">
                                             </div>
                                     </div>
+                                    <form id="sub-form"  action=""  method="get">
                                     <div class="form-group col-md-5">
-                                        <!--AQUI PONEMOS LOS ARTICULOS EXTRAIDOS DE BD-->
-                                        <select name="uploaded_file" class="form-select form-control" aria-label="Default select example" id="uploaded_file" required>
+                                        <!--AQUI PONEMOS LOS ARTICULOS EXTRAIDOS DE BD    href="/links/getDescripcion/{{id}}"           form="sub-form"-->
+                                        <select href="javascript:funcion()"  name="uploaded_file" class="form-select form-control" aria-label="Default select example" id="uploaded_file"  required>
                                             <option value="" disabled selected hidden>Elige el artículo que necesitas</option>
                                             {{#each articulos}}
-                                            <option value="{{id}}">{{articulo}}</option>
+                                            <option value="{{id}}" href="/links/getDescripcion/{{id}}">{{articulo}}</option>
                                             {{/each}}
                                         </select>
                                     </div>
+                                    </form>
 
                                 </div>
                             </div>
@@ -83,7 +85,7 @@
                             <div class="form-col">    
                                 <div class="form-group">
                                     <div class="image-preview center-block mx-auto" id="imagePreview">
-                                        <img src="../../img/fotos/1.jpg" alt="Image Preview" class="image-preview__image center-block mx-auto" >
+                                        <img src="../../img/fotos/1.jpg" alt="Image Preview" class="image-preview__image center-block mx-auto" id="img_pedidos">
                                         <span class="image-preview__default-text center-block mx-auto">Image Prewiew</span>
                                     </div>
                                 </div>
@@ -94,7 +96,7 @@
 
                         <div class="form-group">
                             <textarea class="form-control" name="descripcion" aria-label="With textarea"
-                                placeholder="Descripción" required disabled></textarea>
+                                placeholder="Descripción" >{{descripcion}}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -103,6 +105,7 @@
                             </button>
                         </div>
                     </form>
+                    <a href="javascript:funcion()">Llamar función</a> 
                 </div>
             </div>
 
@@ -110,11 +113,16 @@
     </div>
 </div>
 <script>
+    function funcion(){
+        //alert('/links/getDescripcion/{{id}}');
+        
+      }
     const uploaded_file = document.getElementById("uploaded_file");
     const previewContainer = document.getElementById("imagePreview");
     const previewImage = previewContainer.querySelector(".image-preview__image");
     const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
     uploaded_file.addEventListener("change", function () {
+        //document.getElementById('enlace').setAttribute('href', baseUrl+'/id/'+id);
         const valorCombo = uploaded_file.value;
         console.log(valorCombo);
         const dirImage = `../../img/fotos/${valorCombo}`;
@@ -142,5 +150,9 @@
             previewDefaultText.style.display ="none";
             previewImage.style.display= "block";
         }
+        function redirect(){
+            window.location = "/links/getDescripcion/1"
+        }
     });
+    
 </script>

@@ -33,6 +33,7 @@ router.post('/articulos', upload.single('uploaded_file'), async(req, res, next) 
     res.redirect('/links');
 });
 
+
 /****************** TIPOS  ************************************/
 router.get('/tipos', async(req, res) => {
     const tipos = await pool.query('SELECT * FROM catalogos ORDER BY tipo');
@@ -97,6 +98,14 @@ router.post('/pedidos', async(req, res) => {
     await pool.query('INSERT INTO departamentos  set ?', [newDepto]);
     req.flash('success', 'Shipment Saved Successfully');
     res.redirect('/pedidos');
+});
+
+router.get('/getDescripcion/:id', async(req, res) => {
+    console.log(req.params);
+    // const { id } = req.params;
+    // const descripcion = await pool.query('SELECT * FROM articulos WHERE ID = ?', [id]);
+    // //req.flash('success', 'Link Removed Successfully');
+    // res.redirect('links/pedidos', { desc: descripcion[0] });
 });
 
 router.get('/add', (req, res) => { // aqui esta la respuesta para el formulario 54:24

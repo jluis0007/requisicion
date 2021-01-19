@@ -66,6 +66,10 @@ li {
     white-space: nowrap;
 }
 
+#img_pedidos {
+    width: 120px;
+}
+
 .image-preview {
     border: 2px solid #dddddd;
     /* margin-top: 15px;
