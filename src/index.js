@@ -14,7 +14,7 @@ const flash = require('connect-flash');
 
 // Intializations
 const app = express(); // app ES LA APLICACIÓN
-//require('./lib/passport');
+//require('./lib/passport');/**/ */
 
 // Settings
 app.set('port', process.env.PORT || 4000); //SI EXISTE UN PUERTO EN EL SISTEMA TOMALO DE LO CONTRARIO 4000
