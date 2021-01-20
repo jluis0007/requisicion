@@ -100,21 +100,24 @@ router.post('/pedidos', async(req, res) => {
     res.redirect('/pedidos');
 });
 
-router.get('/getDescripcion/:id', async(req, res) => {
-    console.log(req.params);
-    // const { id } = req.params;
-    // const descripcion = await pool.query('SELECT * FROM articulos WHERE ID = ?', [id]);
+router.get('/pedidos/:id', async(req, res) => {
+    console.log('si entra');
+    const { id } = req.params;
+    const consulta = await pool.query('SELECT * FROM articulos WHERE ID = ?', [id]);
     // //req.flash('success', 'Link Removed Successfully');
     // res.redirect('links/pedidos', { desc: descripcion[0] });
+    //const descripcion
+    console.log(consulta);
+    res.redirect('/links/pedidos', { descripcion: consulta[4] });
 });
 
-router.get('/add', (req, res) => { // aqui esta la respuesta para el formulario 54:24
-    res.render('links/add'); // localhost:4000/links/add
-    // res.send('Form');
-});
-router.get('/pedidos', (req, res) => {
-    res.render('links/pedidos');
-});
+// router.get('/add', (req, res) => { // aqui esta la respuesta para el formulario 54:24
+//     res.render('links/add'); // localhost:4000/links/add
+//     // res.send('Form');
+// });
+// router.get('/pedidos', (req, res) => {
+//     res.render('links/pedidos');
+// });
 
 
 

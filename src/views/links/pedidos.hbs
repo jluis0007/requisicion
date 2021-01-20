@@ -24,9 +24,9 @@
                                     <div class="form-group col-md-3">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Mes</label>
+                                                <label class="input-group-text" for="inputGroupSelect02">Mes</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect01">
+                                            <select class="custom-select" id="inputGroupSelect02">
                                                 <option selected>Elige...</option>
                                                 <option value="1">Enero</option>
                                                 <option value="2">Febrero</option>
@@ -69,10 +69,10 @@
                                     <form id="sub-form"  action=""  method="get">
                                     <div class="form-group col-md-5">
                                         <!--AQUI PONEMOS LOS ARTICULOS EXTRAIDOS DE BD    href="/links/getDescripcion/{{id}}"           form="sub-form"-->
-                                        <select href="javascript:funcion()"  name="uploaded_file" class="form-select form-control" aria-label="Default select example" id="uploaded_file"  required>
+                                        <select   name="uploaded_file" class="form-select form-control" aria-label="Default select example" id="uploaded_file"  required>
                                             <option value="" disabled selected hidden>Elige el artículo que necesitas</option>
                                             {{#each articulos}}
-                                            <option value="{{id}}" href="/links/getDescripcion/{{id}}">{{articulo}}</option>
+                                            <option value="{{id}}" href="/links/getDescripcion/1">{{articulo}}</option>
                                             {{/each}}
                                         </select>
                                     </div>
@@ -105,7 +105,7 @@
                             </button>
                         </div>
                     </form>
-                    <a href="javascript:funcion()">Llamar función</a> 
+                    <a href="/links/pedidos/1">Llamar función</a> 
                 </div>
             </div>
 
@@ -113,46 +113,6 @@
     </div>
 </div>
 <script>
-    function funcion(){
-        //alert('/links/getDescripcion/{{id}}');
-        
-      }
-    const uploaded_file = document.getElementById("uploaded_file");
-    const previewContainer = document.getElementById("imagePreview");
-    const previewImage = previewContainer.querySelector(".image-preview__image");
-    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
-    uploaded_file.addEventListener("change", function () {
-        //document.getElementById('enlace').setAttribute('href', baseUrl+'/id/'+id);
-        const valorCombo = uploaded_file.value;
-        console.log(valorCombo);
-        const dirImage = `../../img/fotos/${valorCombo}`;
-        console.log(dirImage);
-        dirImage2 = dirImage + '.jpg'
-
-        console.log(dirImage2);
-        let error1 = 0;
-        previewImage.setAttribute("src", "../../img/fotos/" + valorCombo + ".png");
-        window.addEventListener('error', function (e) {
-            error1 = error1 + 1;
-            console.log(e);
-            previewImage.setAttribute("src", "../../img/fotos/" + valorCombo + ".jpeg");
-            window.addEventListener('error', function (er) {
-                error1 = error1 + 1;
-                console.log(er);
-                previewImage.setAttribute("src", "../../img/fotos/" + valorCombo + ".jpg");
-                window.addEventListener('error', function (err) {
-                    error1 = error1 + 1;
-                    console.log(err);
-                }, true);
-            }, true);
-        }, true);
-        if (error1===0){ 
-            previewDefaultText.style.display ="none";
-            previewImage.style.display= "block";
-        }
-        function redirect(){
-            window.location = "/links/getDescripcion/1"
-        }
-    });
+    
     
 </script>

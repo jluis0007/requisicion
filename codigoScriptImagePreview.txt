@@ -1,0 +1,41 @@
+function funcion(){
+        //alert('/links/getDescripcion/{{id}}');
+        
+      }
+    const uploaded_file = document.getElementById("uploaded_file");
+    const previewContainer = document.getElementById("imagePreview");
+    const previewImage = previewContainer.querySelector(".image-preview__image");
+    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+    uploaded_file.addEventListener("change", function () {
+        //document.getElementById('enlace').setAttribute('href', baseUrl+'/id/'+id);
+        const valorCombo = uploaded_file.value;
+        console.log(valorCombo);
+        const dirImage = `../../img/fotos/${valorCombo}`;
+        console.log(dirImage);
+        dirImage2 = dirImage + '.jpg'
+
+        console.log(dirImage2);
+        let error1 = 0;
+        previewImage.setAttribute("src", "../../img/fotos/" + valorCombo + ".png");
+        window.addEventListener('error', function (e) {
+            error1 = error1 + 1;
+            console.log(e);
+            previewImage.setAttribute("src", "../../img/fotos/" + valorCombo + ".jpeg");
+            window.addEventListener('error', function (er) {
+                error1 = error1 + 1;
+                console.log(er);
+                previewImage.setAttribute("src", "../../img/fotos/" + valorCombo + ".jpg");
+                window.addEventListener('error', function (err) {
+                    error1 = error1 + 1;
+                    console.log(err);
+                }, true);
+            }, true);
+        }, true);
+        if (error1===0){ 
+            previewDefaultText.style.display ="none";
+            previewImage.style.display= "block";
+        }
+        function redirect(){
+            window.location = "/links/getDescripcion/1"
+        }
+    });
